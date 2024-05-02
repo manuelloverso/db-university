@@ -53,6 +53,14 @@ WHERE `departments`.`name` = 'Dipartimento di Neuroscienze' AND `degrees`.`level
 ```
 
 - Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
+
+```sql
+SELECT `courses`.`id` , `courses`.`name` , `course_teacher`.`teacher_id`
+FROM `courses`
+JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id`
+WHERE `course_teacher`.`teacher_id` = 44;
+```
+
 - Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
 - Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 - Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
