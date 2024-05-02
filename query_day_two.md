@@ -2,12 +2,18 @@
 
 - Contare quanti iscritti ci sono stati ogni anno
 - ```sql
-  SELECT `enrolment_date` ,COUNT(id)
+  SELECT `enrolment_date` ,COUNT(id) AS `NumberOfEnrollments`
   FROM `students`
   GROUP BY `enrolment_date`;
   ```
 
 - Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+- ```sql
+  SELECT `office_address` ,COUNT(id)
+  FROM `teachers`
+  GROUP BY `office_address`;
+  ```
+
 - Calcolare la media dei voti di ogni appello d'esame
 - Contare quanti corsi di laurea ci sono per ogni dipartimento
 
