@@ -97,10 +97,11 @@ ORDER BY `teachers`.`id`;
 - BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18.
 
 ```sql
-SELECT `students`.`id` , `students`.`name` , `students`.`surname` , COUNT(`exam_student`.`student_id`) AS `attempts_for_course_exam` , `courses`.`name` AS `exam_course_name`
+SELECT `students`.`id` , `students`.`name` , `students`.`surname` , COUNT(`exam_student`.`student_id`) AS `attempts_for_course_exam` , `courses`.`name` AS `exam_course_name` , MAX(`exam_student`.`vote`) AS `highest_vote`
 FROM `students`
 JOIN `exam_student` ON `exam_student`.`student_id` = `students`.`id`
 JOIN `exams` ON `exam_student`.`exam_id` = `exams`.`id`
 JOIN `courses` ON `courses`.`id` = `exams`.`course_id`
+WHERE `exam_student`.`vote` >= 18
 GROUP BY `exam_student`.`student_id` , `exams`.`course_id`;
 ```
